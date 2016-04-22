@@ -1,0 +1,47 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<title>在构造函数中使用原型对象</title>
+	<meta charset="utf-8"/>
+    
+</head>
+
+<body>
+<script type="text/javascript">
+	function Person(name,age){
+	this.name=name;
+	this.age=age;
+    }
+	Person.prototype.sayHello=function(){
+		return "name="+this.name+";age="+this.age;
+	}
+	var person1= new Person("web",11);
+	var sayHello=person1.sayHello();
+	console.log(sayHello);
+
+	Person.prototype ={
+		hello:function(){
+			console.log(this.name);
+			return this.name;
+		},
+		ages:function(){
+			console.log(this.age);
+			return this.age;
+		},
+	};
+	var person2= new Person("jacky",28);
+	
+	console.log('person2.hello()='+person2.hello());
+	console.log('person2.ages()='+person2.ages());
+
+	console.log(person2.constructor==Object);
+
+	function Per(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	var per=new Per("jacky",111);
+	console.log(per.constructor==Per);
+</script>
+</body>
+</html>

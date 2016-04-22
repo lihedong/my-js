@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>prototype属性</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+ <script type="text/javascript">
+ 	var obj={};
+ 	var prototype=Object.getPrototypeOf(obj);
+ 	console.log(prototype===Object.prototype);
+
+ 	var object={name:"jack"};
+ 	console.log('object.valueOf()='+object.valueOf());
+
+    //无法为原型对象赋值，但是可以创建一个新的自有对象。
+ 	var addProperty={name:"jacky",age:"123"};
+ 	addProperty.toString=function(){
+ 		return ("name="+this.name+";age="+this.age);
+ 	}
+ 	console.log(addProperty.toString());
+ 	console.log(addProperty.toString);
+
+ 	//测试原型对象的属性
+ 	//isPrototypeOf()属性:检查某个对象是否是另一个对象的原型对象。
+ 	var property1 = {age:123,title:345};
+ 	var property2 = {age:123,title:345};
+ 	var isPrototypeOf1=property2.isPrototypeOf(property1);
+    var isPrototypeOf2=Object.prototype.isPrototypeOf(property1); 	
+    console.log('isPrototypeOf1='+isPrototypeOf1);
+    console.log('isPrototypeOf2='+isPrototypeOf2);
+ </script>
+</body>
+</html>
